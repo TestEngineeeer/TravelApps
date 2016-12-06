@@ -5,7 +5,7 @@ from pages.tours_page import ToursPage
 
 
 class AdminDashboardPage(Helper):
-    def assert_we_on_page(self, page_name):
+    def assert_we_on_admin_dashboard_page(self, page_name):
         self.assert_page_loaded(page_name, db.ACCOUNTS_BUTTON)
 
     def go_to_customers_page(self):

@@ -8,7 +8,7 @@ customer = {"First Name": "Rustam",
 
 
 class UserPage(Helper):
-    def assert_we_on_page(self, page_name):
+    def assert_we_on_user_page(self, page_name):
         self.assert_page_loaded(page_name, cl.MY_PROFILE)
         fname = customer.get("First Name")
         lname = customer.get("Last Name")
@@ -22,13 +22,11 @@ class UserPage(Helper):
         self.select_from_drop_down(1, cl.ADULTS)
         self.select_from_drop_down("Private", cl.TOURTYPE)
         self.click(cl.SEARCH)
-
         self.assert_text_present("Rustam's New Tour", cl.LISTED_TOUR)
         return self.get_element(cl.LISTED_TOUR)
 
     def book_tour(self, name, tour_name):
         self.assert_text_present(tour_name, cl.LISTED_TOUR)
-
         self.click(cl.LISTED_TOUR)
         self.click(cl.BOOK_NOW_BUTTON)
         self.click(cl.CONFIRM_BOOKING)
@@ -39,6 +37,3 @@ class UserPage(Helper):
         self.click(cl.USER_MENU)
         self.click(cl.USER_SETTINGS)
         self.assert_text_present(tour_name, cl.USER_BOOKINGS)
-
-
-

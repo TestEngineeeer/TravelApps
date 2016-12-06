@@ -11,5 +11,5 @@ class AdminLoginPage(Helper):
         elem.click()
         return AdminDashboardPage(self.driver)
 
-    def assert_we_on_page(self, page_name):
+    def assert_we_on_admin_login_page(self, page_name):
         self.assert_page_loaded(page_name, lp.ADMIN_NAME_FIELD)

@@ -2,7 +2,7 @@ from helpers.helper import Helper
 from locators.locators import DashboardLocators as db
 
 new_tour = {"rustam":
-            {db.TOURNAME_FIELD: "Rustam's New Tour",
+            {db.TOUR_NAME_FIELD: "Rustam's New Tour",
              db.TOUR_MAX_ADULT: 1,
              db.TOUR_ADULT_PRICE: 1000
              }
@@ -10,7 +10,7 @@ new_tour = {"rustam":
 
 
 class ToursPage(Helper):
-    def assert_we_on_page(self, page_name):
+    def assert_we_on_tours_management_page(self, page_name):
         self.assert_page_loaded(page_name, db.TOURS_MGMT_TAB)
 
     def search_tour(self, tour_name):
@@ -26,16 +26,15 @@ class ToursPage(Helper):
             if tour_name in table_element.text:
                 raise AssertionError("Tour already exist")
             else:
-                assert "Entries not found." in table_element.text
-                assert tour_name not in table_element.text
+                assert "Entries not found." in table_element.text, "It seems there are returned results"
             break
 
         self.click(db.ADD_BUTTON)
-        self.select_from_drop_down("Private", db.TOUR_TYPE)
-        self.select_from_drop_down("Kauai", db.TOUR_LOCATION)
 
         for i, k in new_tour.get(customer_name).iteritems():
                 self.type(k, i)
+        self.select_from_drop_down("Private", db.TOUR_TYPE)
+        self.select_from_drop_down("Kauai", db.TOUR_LOCATION)
 
         self.click(db.TOUR_SUBMIT_BUTTON)
 

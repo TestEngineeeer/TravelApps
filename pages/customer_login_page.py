@@ -11,6 +11,6 @@ class CustomerLoginPage(Helper):
         elem.click()
         return UserPage(self.driver)
 
-    def assert_we_on_page(self, page_name):
+    def assert_we_on_customer_login_page(self, page_name):
         self.assert_page_loaded(page_name, lp.USER_NAME_FIELD)
 

@@ -50,7 +50,7 @@ class DashboardLocators(object):
     TOURS_BUTTON = (By.XPATH, "//*[@id='social-sidebar-menu']/li[9]/a/span")
     TOURS_BUTTON2 = (By.XPATH, "//*[@id='Tours']/li[1]/a")
     TOURS_MGMT_TAB = (By.XPATH, "//*[@id='content']/div/div[1]")
-    TOURNAME_FIELD = (By.NAME, "tourname")
+    TOUR_NAME_FIELD = (By.NAME, "tourname")
     TOUR_MAX_ADULT = (By.NAME, "maxadult")
     TOUR_ADULT_PRICE = (By.NAME, "adultprice")
     TOUR_TYPE = (By.XPATH, "//*[@id='s2id_autogen1']/a/span[1]")
